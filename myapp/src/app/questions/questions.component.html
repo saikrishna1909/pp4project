@@ -1,0 +1,39 @@
+<div class="start-screen" *ngIf="!start">
+  <div class="start-button" (click)="onStart()">Start</div>
+</div>
+<div class="container" *ngIf="start && !read">
+  <div class="incontainer">
+    <div class="alert alert-warning w-45" style="text-align: center">
+      <span><strong>Please read following instructions!!</strong></span>
+    </div>
+    <div class="alert alert-info" style="width: 40rem">
+      <span>You can aswer question only one</span>
+    </div>
+    <br />
+    <div class="alert alert-info" style="width: 40rem">
+      <span>You cannot revisit the question</span>
+    </div>
+    <br />
+    <div class="alert alert-info text-wrap" style="width: 40rem">
+      <span
+        >You can go to next question only when you attemp current question</span
+      >
+    </div>
+    <br />
+    <div class="alert alert-info" style="width: 40rem">
+      <span>All answers should be completed within 5 min</span>
+    </div>
+    <div class="bcontainer">
+      <button
+        class="btn btn-primary"
+        (click)="onReadInstructions()"
+        id="proceed"
+      >
+        Proceed
+      </button>
+    </div>
+  </div>
+</div>
+<div class="quiz_box" *ngIf="read">
+  <app-section [topic]="topic"></app-section>
+</div>
